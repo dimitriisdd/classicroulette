@@ -32,6 +32,7 @@
   .bet-btn { padding: 8px 12px; border-radius: 5px; border: none; cursor: pointer; background: #3498db; color: white; font-weight: bold; }
   .bet-btn.active { border: 2px solid gold; }
   .cell.active-bet { border: 2px solid gold; }
+  #zero-cell.active-bet { border: 2px solid gold; }
   .bet-btn:hover { background: #2980b9; }
 </style>
 </head>
@@ -154,7 +155,7 @@ document.querySelectorAll('.bet-btn').forEach(btn=>{
     const type = btn.dataset.bet;
     const existing = activeBets.find(b=>b.type===type);
     if(existing){ activeBets = activeBets.filter(b=>b.type!==type); btn.classList.remove('active'); }
-    else { activeBets.push({type,type,amount:parseFloat(betAmountEl.value),number:0}); btn.classList.add('active'); }
+    else { activeBets.push({ type, amount: parseFloat(betAmountEl.value), number: 0 }); btn.classList.add('active'); }
   });
 });
 
